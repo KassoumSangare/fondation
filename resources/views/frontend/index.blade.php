@@ -1519,11 +1519,11 @@
         <ul class="navbar-nav ms-auto align-items-lg-center gap-1 py-2 py-lg-0">
           <li class="nav-item"><a class="nav-link-djama active" href="#top">Accueil</a></li>
           <li class="nav-item"><a class="nav-link-djama" href="#apropos">À propos</a></li>
-          <li class="nav-item"><a class="nav-link-djama" href="#programmes">Programmes</a></li>
-          <li class="nav-item"><a class="nav-link-djama" href="#realisations">Réalisations</a></li>
+          <li class="nav-item"><a class="nav-link-djama" href="#programmes">Actualités</a></li>
+          <li class="nav-item"><a class="nav-link-djama" href="#realisations">Actions</a></li>
           <li class="nav-item"><a class="nav-link-djama" href="#projets">Projets</a></li>
           <li class="nav-item"><a class="nav-link-djama" href="#galerie">Galerie</a></li>
-          <li class="nav-item"><a class="nav-link-djama" href="#actualites">Actualités</a></li>
+          <!-- <li class="nav-item"><a class="nav-link-djama" href="#actualites">Actualités</a></li> -->
           <li class="nav-item ms-lg-2">
             <a href="#agir" class="btn btn-don"><i class="bi bi-heart-fill me-1" style="font-size:.75rem;"></i> Faire un don</a>
           </li>
@@ -1649,11 +1649,11 @@
       </div>
   </section>
 
-  <!-- ════ PROGRAMMES ════ -->
+  <!-- ════ ACTUALITES ════ -->
   <section class="section-pad" id="programmes" style="background:var(--djama-light-bg);">
     <div class="container">
       <div class="text-center mb-5">
-        <div class="section-eyebrow justify-content-center">Nos programmes</div>
+        <div class="section-eyebrow justify-content-center">Nos actualités</div>
         <h2 class="section-title">Des actions concrètes<br />sur le <span>terrain</span></h2>
       </div>
 
@@ -1703,12 +1703,12 @@
     </div>
   </div>
 
-  <!-- ════ REALISATIONS ════ -->
+  <!-- ════ ACTIONS ════ -->
   <section class="section-pad" id="realisations">
     <div class="container">
       <div class="row align-items-center mb-5">
         <div class="col-lg-6">
-          <div class="section-eyebrow">Nos réalisations</div>
+          <div class="section-eyebrow">Nos actions</div>
           <h2 class="section-title">Ce que nous avons<br /><span>accompli ensemble</span></h2>
         </div>
         <div class="col-lg-6">
@@ -1904,7 +1904,7 @@
   </section>
 
   <!-- ════ ACTUALITES ════ -->
-  <section class="section-pad" id="actualites" style="background:var(--djama-light-bg);">
+  <!-- <section class="section-pad" id="actualites" style="background:var(--djama-light-bg);">
     <div class="container">
       <div class="row align-items-center mb-5">
         <div class="col-lg-7">
@@ -1950,7 +1950,7 @@
         @endforeach
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ════ AGIR ════ -->
   <section class="section-pad" id="agir">
@@ -2117,15 +2117,15 @@
           <div class="footer-title">Navigation</div>
           <a class="footer-link" href="#">Accueil</a>
           <a class="footer-link" href="#apropos">À propos</a>
-          <a class="footer-link" href="#programmes">Programmes</a>
-          <a class="footer-link" href="#realisations">Réalisations</a>
+          <a class="footer-link" href="#programmes">Actualités</a>
+          <a class="footer-link" href="#realisations">Actions</a>
           <a class="footer-link" href="#projets">Projets</a>
         </div>
 
         <div class="col-6 col-lg-2">
           <div class="footer-title">Ressources</div>
           <a class="footer-link" href="#galerie">Galerie</a>
-          <a class="footer-link" href="#actualites">Actualités</a>
+          <!-- <a class="footer-link" href="#actualites">Actualités</a> -->
           <a class="footer-link" href="#temoignages">Témoignages</a>
           <a class="footer-link" href="#contact">Contact</a>
         </div>
