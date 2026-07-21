@@ -1457,6 +1457,66 @@
       opacity: 0;
     }
 
+    /* ─── Infos de don (RIB / Wave) ─── */
+    .don-info-block {
+      background: var(--djama-light-bg);
+      border: 1px solid rgba(31, 78, 121, 0.08);
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .don-info-label {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: #6a7a8a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .don-info-value {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--djama-blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .don-copy-btn {
+      border: none;
+      background: rgba(244, 124, 32, 0.12);
+      color: var(--djama-orange);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background .2s, transform .15s;
+    }
+
+    .don-copy-btn:hover {
+      background: rgba(244, 124, 32, 0.22);
+      transform: translateY(-1px)
+    }
+
+    .don-info-note {
+      font-size: .82rem;
+      color: #5a6a7a;
+      line-height: 1.6;
+      margin-bottom: 1.2rem
+    }
+
 
     .back-top {
       position: fixed;
@@ -1903,55 +1963,6 @@
     </div>
   </section>
 
-  <!-- ════ ACTUALITES ════ -->
-  <!-- <section class="section-pad" id="actualites" style="background:var(--djama-light-bg);">
-    <div class="container">
-      <div class="row align-items-center mb-5">
-        <div class="col-lg-7">
-          <div class="section-eyebrow">Actualités</div>
-          <h2 class="section-title mb-0">Restez informés<br />de nos <span>actions</span></h2>
-        </div>
-        <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
-          <a href="{{ route('news.all') }}" style="font-family:var(--font-head);font-weight:600;color:var(--djama-blue);font-size:.88rem;">
-            Toutes les actualités <i class="bi bi-arrow-right ms-1"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        @foreach($news as $item)
-        <div class="col-md-6 col-lg-4">
-          <div class="actu-card">
-            <div class="actu-img">
-              <img src="{{ $item->image ? asset('storage/'.$item->image) : '' }}"
-                alt="{{ $item->title }}"
-                loading="lazy"
-                onerror="this.style.display='none'">
-              <span class="actu-cat-badge" style="background:#E3F2FD;color:#1565C0;">{{ $item->category }}</span>
-            </div>
-
-            <div class="actu-body">
-              <h6>{{ $item->title }}</h6>
-              <p>{{ \Illuminate\Support\Str::limit($item->content, 120) }}</p>
-              <a href="{{ route('news.show', $item->slug) }}" class="btn-prog btn-prog-outline mt-auto">
-                Lire l'article <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-
-            <div class="actu-footer-bar">
-              <span class="actu-date-txt">
-                <i class="bi bi-calendar3"></i>
-                {{ $item->published_at ? $item->published_at->format('d M Y') : 'Non publié' }}
-              </span>
-              <span style="font-size:.75rem;color:#9aacbe;">{{ $item->reading_time }} min</span>
-            </div>
-          </div>
-        </div>
-        @endforeach
-      </div>
-    </div>
-  </section> -->
-
   <!-- ════ AGIR ════ -->
   <section class="section-pad" id="agir">
     <div class="container">
@@ -1980,46 +1991,36 @@
         @endforeach
       </div>
     </div>
+
   </section>
 
-  <!-- ════ MODAL AGIR ════ -->
+  <!-- ════ MODAL AGIR (infos de don) ════ -->
   <div class="modal-overlay" id="agirModal">
     <div class="modal-box">
       <span class="modal-close" aria-label="Fermer">&times;</span>
-      <h3 id="agirModalTitle" class="modal-title"></h3>
+      <h3 id="agirModalTitle" class="modal-title">Soutenir la fondation</h3>
 
-      <form method="POST" action="{{ route('engagement.store') }}" id="agirForm">
-        @csrf
+      <p class="don-info-note">Merci pour votre générosité ! Vous pouvez faire un don via l'un des moyens suivants :</p>
 
-        <input type="hidden" name="type" id="agirModalType">
-        <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off">
-
-        <div class="mb-3">
-          <input type="text" name="name" placeholder="Votre nom complet" required class="form-control">
+      <div class="don-info-block">
+        <div class="don-info-label"><i class="bi bi-bank2"></i> RIB — Banque Atlantique</div>
+        <div class="don-info-value">
+          <span>0183 6564 0003</span>
+          <button type="button" class="don-copy-btn" data-copy="01836564 0003" aria-label="Copier le numéro de compte">
+            <i class="bi bi-clipboard"></i>
+          </button>
         </div>
+      </div>
 
-        <div class="mb-3">
-          <input type="email" name="email" placeholder="Adresse email" required class="form-control">
+      <div class="don-info-block mb-0">
+        <div class="don-info-label"><i class="bi bi-phone"></i> Numéro Wave</div>
+        <div class="don-info-value">
+          <span>+225 07 04 43 98 56</span>
+          <button type="button" class="don-copy-btn" data-copy="+2250704439856" aria-label="Copier le numéro Wave">
+            <i class="bi bi-clipboard"></i>
+          </button>
         </div>
-
-        <div class="mb-3">
-          <input type="tel" name="phone" placeholder="Numéro de téléphone" class="form-control">
-        </div>
-
-        <div id="agirAmountField" class="mb-3" style="display:none;">
-          <input type="number" name="amount" placeholder="Montant du don" min="1000" class="form-control">
-        </div>
-
-        <div class="mb-3">
-          <textarea name="message" placeholder="Votre message" rows="3" class="form-control"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-don w-100 py-3">
-          <i class="bi bi-send-fill me-2"></i>Envoyer
-        </button>
-
-        <div id="agirFormFeedback" class="mt-3 text-center d-none"></div>
-      </form>
+      </div>
     </div>
   </div>
 
@@ -2371,22 +2372,14 @@
 
 
     // ──────────────────────────────────
-    // MODAL AGIR
+    // MODAL AGIR (affichage infos de don)
     // ──────────────────────────────────
     const agirModal = document.getElementById('agirModal');
     const agirModalTitle = document.getElementById('agirModalTitle');
-    const agirModalType = document.getElementById('agirModalType');
-    const agirAmountField = document.getElementById('agirAmountField');
-    const agirForm = document.getElementById('agirForm');
 
     document.querySelectorAll('.open-agir-modal').forEach(btn => {
       btn.addEventListener('click', () => {
         agirModalTitle.innerText = btn.dataset.title;
-        agirModalType.value = btn.dataset.type;
-
-        // Afficher champ montant seulement pour les dons
-        agirAmountField.style.display = btn.dataset.type === 'donation' ? 'block' : 'none';
-
         agirModal.classList.add('active');
       });
     });
@@ -2394,53 +2387,20 @@
     agirModal.querySelector('.modal-close').addEventListener('click', () => agirModal.classList.remove('active'));
     agirModal.addEventListener('click', e => e.target === agirModal && agirModal.classList.remove('active'));
 
-    // Gestion soumission formulaire
-    agirForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Anti bot honeypot
-      if (agirForm.querySelector('[name="website"]').value) return;
-
-      const feedback = document.getElementById('agirFormFeedback');
-      const btn = agirForm.querySelector('button[type="submit"]');
-
-      btn.disabled = true;
-      btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Envoi en cours...';
-      feedback.classList.add('d-none');
-
-      try {
-        // Envoyer vraiment les données via FormData
-        const formData = new FormData(agirForm);
-        const response = await fetch(agirForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-          }
+    // Copier RIB / Wave dans le presse-papiers
+    agirModal.querySelectorAll('.don-copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = btn.dataset.copy;
+        navigator.clipboard.writeText(value).then(() => {
+          const icon = btn.querySelector('i');
+          icon.classList.remove('bi-clipboard');
+          icon.classList.add('bi-check2');
+          setTimeout(() => {
+            icon.classList.remove('bi-check2');
+            icon.classList.add('bi-clipboard');
+          }, 1500);
         });
-
-        if (!response.ok) {
-          throw new Error(`Erreur HTTP: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        feedback.innerHTML = '✅ Message envoyé avec succès ! Nous vous recontacterons très rapidement.';
-        feedback.style.color = '#2E7D32';
-        feedback.classList.remove('d-none');
-        agirForm.reset();
-
-        setTimeout(() => agirModal.classList.remove('active'), 2000);
-
-      } catch (err) {
-        console.error('Erreur:', err);
-        feedback.innerHTML = '❌ Une erreur est survenue, veuillez réessayer.';
-        feedback.style.color = '#E53935';
-        feedback.classList.remove('d-none');
-      }
-
-      btn.disabled = false;
-      btn.innerHTML = '<i class="bi bi-send-fill me-2"></i>Envoyer';
+      });
     });
 
 
