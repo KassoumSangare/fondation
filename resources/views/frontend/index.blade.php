@@ -2224,6 +2224,8 @@
     let sliderInterval;
     const SLIDER_DELAY = 6000;
 
+    const sliderTrack = document.getElementById('sliderTrack');
+
     function showSlide(index) {
       slides.forEach(s => s.classList.remove('active'));
       dots.forEach(d => d.classList.remove('active'));
@@ -2231,6 +2233,8 @@
       slides[index].classList.add('active');
       dots[index].classList.add('active');
       currentSlide = index;
+
+      sliderTrack.style.transform = `translateX(-${index * 100}%)`;
 
       resetProgressBar();
     }

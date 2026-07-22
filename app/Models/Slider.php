@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-   class Slider extends Model
+class Slider extends Model
 {
     protected $fillable = [
         'badge',
@@ -19,10 +18,11 @@ use Illuminate\Database\Eloquent\Model;
         'image',
         'stats',
         'order',
-        'is_active'
+        'is_active',
     ];
 
     protected $casts = [
-        'stats' => 'array'
+        'stats' => 'array',
+        'is_active' => 'boolean',
     ];
 }
